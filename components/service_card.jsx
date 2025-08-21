@@ -67,6 +67,10 @@ function Service_card(props) {
     };
     delete_Service();
   }
+
+  function bookingService() {
+    props.onBook({ serviceData: props.serviceData, visiblity: true });
+  }
   return (
     <>
       <div className="bg-white/20 rounded-2xl h-100 w-70 mx-5 my-5 shadow-[0px_10px_15px_-3px_rgba(0,_0,_0,_0.1)] backdrop-blur-2xl border border-white/30 items-center flex flex-col hover:border-white">
@@ -155,6 +159,8 @@ function Service_card(props) {
             onClick={() => {
               if (userRole === "SaloonOwner") {
                 seteditState(true);
+              } else {
+                bookingService();
               }
             }}
             style={

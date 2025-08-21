@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import UserServices from "../components/userServices";
+import BookService from "../components/bookingService";
 
 function Userservices() {
   const [browseservices, setBrowseServices] = useState(null);
+  const [bookingVisible, setbookingVisible] = useState(false);
+  const [bookindData, setbookingData] = useState(null);
   function browseServices() {
     const browse = async () => {
       const res = await fetch("http://127.0.0.1:4444/browse", {
@@ -18,9 +21,38 @@ function Userservices() {
   useEffect(() => {
     browseServices();
   }, []);
+
+  function getDatafromservice(data) {
+    console.log(data);
+    setbookingVisible(data.visiblity);
+    setbookingData(data.serviceData);
+  }
+
+  function getdatafromBooking(data) {
+    setbookingVisible(data.visibility);
+    console.log(data.visibility);
+  }
   return (
     <>
-      <div>
+      <div
+        className="w-[30%] m-auto h-200 flex justify-center items-center"
+        style={
+          bookingVisible === true
+            ? { visibility: "visible" }
+            : { display: "none" }
+        }
+      >
+        <div className=" shadow-[0px_10px_15px_-3px_rgba(0,_0,_0,_0.1)] rounded-lg">
+          <BookService serviceData={bookindData} getData={getdatafromBooking} />
+        </div>
+      </div>
+      <div
+        style={
+          bookingVisible === true
+            ? { display: "none" }
+            : { visibility: "visible" }
+        }
+      >
         <div className="px-10 py-3 flex flex-row justify-center items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +70,7 @@ function Userservices() {
         </div>
         <div>
           {browseservices?.saloonData.map((el) => {
-            return <UserServices saloonData={el} />;
+            return <UserServices saloonData={el} onBook={getDatafromservice} />;
           })}
         </div>
         <div className="h-10"></div>

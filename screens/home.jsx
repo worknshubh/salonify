@@ -12,7 +12,10 @@ function Home() {
   return (
     <>
       <div className="flex flex-row min-h-100 w-full">
-        <div className="w-[40%] flex flex-col justify-center items-center">
+        <div
+          className="w-[40%] flex flex-col justify-center items-center"
+          style={{ animation: "leftToright 0.5s ease-out forwards" }}
+        >
           <h2 className="text-6xl my-2">Where Style</h2>
           <h2 className="text-6xl my-2">Meets</h2>
           <h2 className="text-6xl text-[#EFA61F] curl my-2">Simplicity</h2>
@@ -25,7 +28,10 @@ function Home() {
             </button>
           </div>
         </div>
-        <div className="w-[60%] flex justify-end items-center">
+        <div
+          className="w-[60%] flex justify-end items-center"
+          style={{ animation: "rightToleft 0.5s ease-out forwards" }}
+        >
           <img src="src/assets/images/homepagepic.png"></img>
         </div>
       </div>

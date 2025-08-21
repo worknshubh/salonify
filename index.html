@@ -34,6 +34,28 @@
         font-weight: 400;
         font-style: normal;
       }
+
+      @keyframes rightToleft {
+        0% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+
+      @keyframes leftToright {
+        0% {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
     </style>
   </head>
   <body>
