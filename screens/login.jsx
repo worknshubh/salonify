@@ -49,7 +49,7 @@ function Login_screen() {
           </div>
         </div>
         <img
-          src="../src/assets/images/loginpage.png"
+          src="/images/loginpage.png"
           className="absolute -right-50 bottom-0"
         ></img>
       </div>

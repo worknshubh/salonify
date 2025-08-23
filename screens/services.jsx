@@ -133,7 +133,7 @@ function Services() {
             className="w-[70%] bg-[#D9D9D9] rounded-2xl h-40 m-auto shadow-[0px_10px_15px_-3px_rgba(0,_0,_0,_0.1)] opacity-55 flex justify-center items-center backdrop-blur-2xl hover:opacity-30 cursor-pointer"
             onClick={newservice}
           >
-            <img src="src/assets/images/addservice.png" alt="" />
+            <img src="/images/addservice.png" alt="" />
           </div>
 
           <div

@@ -157,7 +157,7 @@ function BookService(props) {
         </div>
       ) : (
         <div className="flex justify-center items-center h-lvh">
-          <img src="src/assets/loader/loader.svg"></img>
+          <img src="/loader/loader.svg"></img>
         </div>
       )}
     </>

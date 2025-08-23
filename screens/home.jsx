@@ -33,7 +33,7 @@ function Home() {
           className="w-[60%] flex justify-end items-center"
           style={{ animation: "rightToleft 0.5s ease-out forwards" }}
         >
-          <img src="../src/assets/images/homepagepic.png"></img>
+          <img src="/images/homepagepic.png"></img>
         </div>
       </div>
     </>

@@ -9,10 +9,7 @@ function ErrorPage() {
         <h2 className="text-8xl inter-normal m-4">404</h2>
         <h4 className="text-3xl inter-normal">NOT FOUND</h4>
         <div className="mt-5">
-          <img
-            src="../src/assets/images/errorpageimage.png"
-            className="h-120"
-          />
+          <img src="/images/errorpageimage.png" className="h-120" />
         </div>
         <button
           className="bg-[#eeeeee] inter-normal text-2xl py-3 px-6 rounded-2xl cursor-pointer hover:bg-[#e6e6e6]"

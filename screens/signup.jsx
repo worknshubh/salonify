@@ -62,7 +62,7 @@ function Signup_screen() {
           </div>
         </div>
         <img
-          src="../src/assets/images/signuppage.png"
+          src="/images/signuppage.png"
           className="absolute -right-70 bottom-0"
         ></img>
       </div>
