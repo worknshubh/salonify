@@ -40,7 +40,7 @@ function PartnersignUp(props) {
     ) {
       const sendtobackend = async () => {
         const res = await fetch(
-          "http://127.0.0.1:4444/auth/saloonowner/signup",
+          "https://salonify-backend.onrender.com/auth/saloonowner/signup",
           {
             method: "POST",
             credentials: "include",

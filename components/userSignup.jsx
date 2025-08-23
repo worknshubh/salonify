@@ -39,20 +39,23 @@ function UsersignUp(props) {
       userAddress != ""
     ) {
       const sendtobackend = async () => {
-        const res = await fetch("http://127.0.0.1:4444/auth/user/signup", {
-          method: "POST",
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            userName: userName,
-            userEmail: userEmail,
-            userPass: userPass,
-            userNumber: userNumber,
-            userAddress: userAddress,
-            userState: userLocation.principalSubdivision,
-            userCity: userLocation.city,
-          }),
-        });
+        const res = await fetch(
+          "https://salonify-backend.onrender.com/auth/user/signup",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              userName: userName,
+              userEmail: userEmail,
+              userPass: userPass,
+              userNumber: userNumber,
+              userAddress: userAddress,
+              userState: userLocation.principalSubdivision,
+              userCity: userLocation.city,
+            }),
+          }
+        );
 
         const output = await res.json();
         console.log(output);

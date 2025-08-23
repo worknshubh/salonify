@@ -10,7 +10,7 @@ function PaymentStatus() {
     async function checkStatus() {
       try {
         const res = await fetch(
-          `http://127.0.0.1:4444/payment/status/${txnId}`,
+          `https://salonify-backend.onrender.com/payment/status/${txnId}`,
           { method: "GET", credentials: "include" }
         );
         const data = await res.json();

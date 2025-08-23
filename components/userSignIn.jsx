@@ -8,17 +8,20 @@ function UsersignIn() {
   function verifyandsgnin() {
     if (userEmail != "" && userPass != "") {
       const userlogin = async () => {
-        const res = await fetch("http://127.0.0.1:4444/auth/user/signin", {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userEmail: userEmail,
-            userPass: userPass,
-          }),
-        });
+        const res = await fetch(
+          "https://salonify-backend.onrender.com/auth/user/signin",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userEmail: userEmail,
+              userPass: userPass,
+            }),
+          }
+        );
         const output = await res.json();
         console.log(output);
         if (output.msg == "Login Successful") {

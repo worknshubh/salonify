@@ -10,7 +10,7 @@ function BookService(props) {
   const [dataLoaded, setdataLoaded] = useState(false);
   const [userData, setuserData] = useState(null);
   async function getUserData() {
-    const res = await fetch("http://127.0.0.1:4444/auth/info", {
+    const res = await fetch("https://salonify-backend.onrender.com/auth/info", {
       method: "GET",
       credentials: "include",
     });
@@ -28,7 +28,7 @@ function BookService(props) {
   async function sendtoBackend() {
     console.log(props.serviceData._id);
     const res = await fetch(
-      `http://127.0.0.1:4444/user/bookservice/${props.serviceData._id}`,
+      `https://salonify-backend.onrender.com/user/bookservice/${props.serviceData._id}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

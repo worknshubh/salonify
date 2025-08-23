@@ -43,22 +43,25 @@ function EditProfile(props) {
       const updatetoBackend = async () => {
         const userImage = await ImgUpload();
         if (props.data.data.userRole === "Customer") {
-          const res = await fetch("http://127.0.0.1:4444/user/updateprofile", {
-            method: "POST",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              userName: userName,
-              userEmail: props.data.data.userEmail,
-              userNumber: userNumber,
-              userAddress: userAddress,
-              userImage: userImage,
-            }),
-          });
+          const res = await fetch(
+            "https://salonify-backend.onrender.com/user/updateprofile",
+            {
+              method: "POST",
+              credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                userName: userName,
+                userEmail: props.data.data.userEmail,
+                userNumber: userNumber,
+                userAddress: userAddress,
+                userImage: userImage,
+              }),
+            }
+          );
           const output = await res.json();
         } else {
           const res = await fetch(
-            "http://127.0.0.1:4444/salonowner/updateprofile",
+            "https://salonify-backend.onrender.com/salonowner/updateprofile",
             {
               method: "POST",
               credentials: "include",

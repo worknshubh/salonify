@@ -21,10 +21,13 @@ function Services() {
   }
   function getdata() {
     const getservices = async () => {
-      const res = await fetch("http://127.0.0.1:4444/services/fetchservices", {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://salonify-backend.onrender.com/services/fetchservices",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
       const output = await res.json();
       console.log(output);
       setshopServices(output);
@@ -34,10 +37,13 @@ function Services() {
 
   function checkforrole() {
     const verify = async () => {
-      const res = await fetch("http://127.0.0.1:4444/auth/verifyrole", {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://salonify-backend.onrender.com/auth/verifyrole",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
       const output = await res.json();
       if (output.msg === "User") {
         navigate("/userservices");
@@ -57,19 +63,22 @@ function Services() {
     if (serviceTitle != "" && serviceDesc != "" && serviceCost != "") {
       const sendtobackend = async () => {
         const serviceImageupload = await uploadimage();
-        const res = await fetch("http://127.0.0.1:4444/services/addservice", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            serviceTitle: serviceTitle,
-            serviceDesc: serviceDesc,
-            serviceCost: serviceCost,
-            serviceImage: serviceImageupload,
-          }),
-        });
+        const res = await fetch(
+          "https://salonify-backend.onrender.com/services/addservice",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+              serviceTitle: serviceTitle,
+              serviceDesc: serviceDesc,
+              serviceCost: serviceCost,
+              serviceImage: serviceImageupload,
+            }),
+          }
+        );
         const output = await res.json();
         console.log(output);
         if (output.msg === "service added successfully") {

@@ -9,7 +9,7 @@ function PartnersignIn() {
     if (userEmail != "" && userPass != "") {
       const userlogin = async () => {
         const res = await fetch(
-          "http://127.0.0.1:4444/auth/saloonowner/signin",
+          "https://salonify-backend.onrender.com/auth/saloonowner/signin",
           {
             method: "POST",
             credentials: "include",

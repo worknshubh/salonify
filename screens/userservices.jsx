@@ -8,7 +8,7 @@ function Userservices() {
   const [bookindData, setbookingData] = useState(null);
   function browseServices() {
     const browse = async () => {
-      const res = await fetch("http://127.0.0.1:4444/browse", {
+      const res = await fetch("https://salonify-backend.onrender.com/browse", {
         method: "GET",
         credentials: "include",
       });

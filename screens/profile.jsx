@@ -15,7 +15,7 @@ function ProfileScreen() {
     }
   }
   async function getUserData() {
-    const res = await fetch("http://127.0.0.1:4444/auth/info", {
+    const res = await fetch("https://salonify-backend.onrender.com/auth/info", {
       method: "GET",
       credentials: "include",
     });
@@ -25,10 +25,13 @@ function ProfileScreen() {
   }
 
   async function checkBookings() {
-    const res = await fetch("http://127.0.0.1:4444/user/mybookings", {
-      method: "GET",
-      credentials: "include",
-    });
+    const res = await fetch(
+      "https://salonify-backend.onrender.com/user/mybookings",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
     const output = await res.json();
     console.log(output);
     setBookingData(output);

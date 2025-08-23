@@ -10,10 +10,13 @@ function Service_card(props) {
   const [serviceCost, setServiceCost] = useState(props.serviceData.serviceCost);
   function verifyRole() {
     const verifyuserrole = async () => {
-      const res = await fetch("http://127.0.0.1:4444/auth/verifyrole", {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://salonify-backend.onrender.com/auth/verifyrole",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
       const output = await res.json();
       console.log(output);
       setuserRole(output.msg);
@@ -28,7 +31,7 @@ function Service_card(props) {
     if (serviceName != "" && serviceCost != "" && serviceDesc != "") {
       const update_to_backend = async () => {
         const res = await fetch(
-          `http://127.0.0.1:4444/services/editservice/${props.serviceData._id}`,
+          `https://salonify-backend.onrender.com/services/editservice/${props.serviceData._id}`,
           {
             method: "POST",
             credentials: "include",
@@ -55,7 +58,7 @@ function Service_card(props) {
   function deletetheservice() {
     const delete_Service = async () => {
       const res = await fetch(
-        `http://127.0.0.1:4444/services/deleteservice/${props.serviceData._id}`,
+        `https://salonify-backend.onrender.com/services/deleteservice/${props.serviceData._id}`,
         {
           method: "GET",
           credentials: "include",

@@ -5,7 +5,7 @@ function HeaderComponent() {
   const [userInfo, setuserInfo] = useState(null);
 
   async function getUserData() {
-    const res = await fetch("http://127.0.0.1:4444/auth/info", {
+    const res = await fetch("https://salonify-backend.onrender.com/auth/info", {
       method: "GET",
       credentials: "include",
     });
