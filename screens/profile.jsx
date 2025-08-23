@@ -9,7 +9,8 @@ function ProfileScreen() {
   const [bookindData, setBookingData] = useState(null);
   const navigate = useNavigate();
   function checkLogin() {
-    if (document.cookie.includes("token")) {
+    const token = localStorage.getItem("authToken");
+    if (token) {
     } else {
       navigate("/login");
     }

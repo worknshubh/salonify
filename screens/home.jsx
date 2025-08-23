@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
   function verifyandredirect() {
-    if (document.cookie.includes("token")) {
+    const token = localStorage.getItem("authToken");
+    if (token) {
       navigate("/services");
     } else {
       navigate("/login");

@@ -8,24 +8,34 @@ function PartnersignIn() {
   function verifyandlogin() {
     if (userEmail != "" && userPass != "") {
       const userlogin = async () => {
-        const res = await fetch(
-          "https://salonify-backend.onrender.com/auth/saloonowner/signin",
-          {
-            method: "POST",
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              userEmail: userEmail,
-              userPass: userPass,
-            }),
-          }
-        );
+        try {
+          const res = await fetch(
+            "https://salonify-backend.onrender.com/auth/saloonowner/signin",
+            {
+              method: "POST",
+              credentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                userEmail: userEmail,
+                userPass: userPass,
+              }),
+            }
+          );
 
-        const output = await res.json();
-        console.log(output);
-        navigate("/services");
+          const output = await res.json();
+          console.log(output);
+          if (output.success && output.token) {
+            localStorage.setItem("authToken", output.token);
+            navigate("/services");
+          } else {
+            alert(output.msg || "Login failed");
+          }
+        } catch (error) {
+          console.error("Login error:", error);
+          alert("Login failed. Please try again.");
+        }
       };
       userlogin();
     } else {

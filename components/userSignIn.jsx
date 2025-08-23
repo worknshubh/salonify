@@ -8,24 +8,32 @@ function UsersignIn() {
   function verifyandsgnin() {
     if (userEmail != "" && userPass != "") {
       const userlogin = async () => {
-        const res = await fetch(
-          "https://salonify-backend.onrender.com/auth/user/signin",
-          {
-            method: "POST",
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              userEmail: userEmail,
-              userPass: userPass,
-            }),
+        try {
+          const res = await fetch(
+            "https://salonify-backend.onrender.com/auth/user/signin",
+            {
+              method: "POST",
+              credentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                userEmail: userEmail,
+                userPass: userPass,
+              }),
+            }
+          );
+          const output = await res.json();
+          console.log(output);
+          if (output.success && output.token) {
+            localStorage.setItem("authToken", output.token);
+            navigate("/services");
+          } else {
+            alert(output.msg || "Login failed");
           }
-        );
-        const output = await res.json();
-        console.log(output);
-        if (output.msg == "Login Successful") {
-          navigate("/services");
+        } catch (error) {
+          console.error("Login error:", error);
+          alert("Login failed. Please try again.");
         }
       };
       userlogin();

@@ -14,7 +14,8 @@ function Services() {
   const [serviceImagelink, setserviceImagelink] = useState("");
   const [waitforRender, setwaitforRender] = useState(false);
   function checkforsignin() {
-    if (document.cookie.includes("token")) {
+    const token = localStorage.getItem("authToken");
+    if (token) {
     } else {
       navigate("/login");
     }
