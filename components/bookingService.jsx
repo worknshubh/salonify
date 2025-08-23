@@ -1,6 +1,7 @@
 import Datetime from "react-datetime";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import loader from "../public/loader/loader.svg";
 function BookService(props) {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
@@ -157,7 +158,7 @@ function BookService(props) {
         </div>
       ) : (
         <div className="flex justify-center items-center h-lvh">
-          <img src="/loader/loader.svg"></img>
+          <img src={loader} alt="Loading.."></img>
         </div>
       )}
     </>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Service_card from "../components/service_card";
 import { useNavigate } from "react-router-dom";
 import BookService from "../components/bookingService";
+import loader from "../public/loader/loader.svg";
 
 function Services() {
   const navigate = useNavigate();
@@ -125,7 +126,7 @@ function Services() {
     <>
       {waitforRender === false ? (
         <div className="flex justify-center items-center h-lvh">
-          <img src="src/assets/loader/loader.svg"></img>
+          <img src={loader} alt="Loading.."></img>
         </div>
       ) : (
         <div className="py-5 mt-10">
