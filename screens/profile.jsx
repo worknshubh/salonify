@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import EditProfile from "../components/editProfile";
 import { useNavigate } from "react-router-dom";
+import MyBookings from "../components/myBookings";
 
 function ProfileScreen() {
   const [editProfile, setEditProfile] = useState(false);
   const [userInfo, setuserInfo] = useState(null);
+  const [bookindData, setBookingData] = useState(null);
   const navigate = useNavigate();
   function checkLogin() {
     if (document.cookie.includes("token")) {
@@ -22,9 +24,20 @@ function ProfileScreen() {
     setuserInfo(output);
   }
 
+  async function checkBookings() {
+    const res = await fetch("http://127.0.0.1:4444/user/mybookings", {
+      method: "GET",
+      credentials: "include",
+    });
+    const output = await res.json();
+    console.log(output);
+    setBookingData(output);
+  }
+
   useEffect(() => {
     checkLogin();
     getUserData();
+    checkBookings();
   }, [editProfile]);
 
   function getResfromEdit(data) {
@@ -95,22 +108,42 @@ function ProfileScreen() {
           </div>
           {userInfo?.data?.userRole === "Customer" ? (
             <div className=" flex justify-center items-center mt-8 inter-normal h-130">
-              <div className="bg-[#EEEEEE] w-[35%] h-[100%] rounded-2xl">
+              <div className="bg-[#EEEEEE] w-[45%] h-[100%] rounded-2xl">
                 <div className="flex justify-center items-center m-3 flex-col">
                   <h2 className="text-lg mb-5">My Bookings History</h2>
                   <div className="w-[100%] flex justify-center items-center flex-col">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="180px"
-                      height="180px"
-                      viewBox="0 0 2048 2048"
-                    >
-                      <path
-                        fill="#d9d9d9"
-                        d="M896 1536h128v128H896zm64-960q66 0 124 25t101 69t69 102t26 124q0 60-19 104t-47 81t-62 65t-61 59t-48 63t-19 76v64H896v-64q0-60 19-104t47-81t62-65t61-59t48-63t19-76q0-40-15-75t-41-61t-61-41t-75-15t-75 15t-61 41t-41 61t-15 75H640q0-66 25-124t68-101t102-69t125-26"
-                      />
-                    </svg>
-                    <h2 className="text-[#a19d9d]">No Bookings Found</h2>
+                    <div className="grid grid-cols-5 gap-2 w-[100%] p-2 font-bold">
+                      <h2>Service</h2>
+                      <h2>Date</h2>
+                      <h2>Time</h2>
+                      <h2>Cost</h2>
+                      <h2>Payment Status</h2>
+                    </div>
+
+                    <div className="w-[100%] h-[calc(100%-60px)] overflow-y-auto">
+                      {bookindData?.bookedbyUser?.length > 0 ? (
+                        bookindData.bookedbyUser.map((el) =>
+                          el.servicesBooked.map((item) => (
+                            <MyBookings data={item} />
+                          ))
+                        )
+                      ) : (
+                        <div className="flex flex-col items-center justify-center mt-10">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="180px"
+                            height="180px"
+                            viewBox="0 0 2048 2048"
+                          >
+                            <path
+                              fill="#d9d9d9"
+                              d="M896 1536h128v128H896zm64-960q66 0 124 25t101 69t69 102t26 124q0 60-19 104t-47 81t-62 65t-61 59t-48 63t-19 76v64H896v-64q0-60 19-104t47-81t62-65t61-59t48-63t19-76q0-40-15-75t-41-61t-61-41t-75-15t-75 15t-61 41t-41 61t-15 75H640q0-66 25-124t68-101t102-69t125-26"
+                            />
+                          </svg>
+                          <h2 className="text-[#a19d9d]">No Bookings Found</h2>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

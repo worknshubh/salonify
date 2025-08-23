@@ -25,6 +25,31 @@ function BookService(props) {
   useEffect(() => {
     getUserData();
   }, []);
+  async function sendtoBackend() {
+    console.log(props.serviceData._id);
+    const res = await fetch(
+      `http://127.0.0.1:4444/user/bookservice/${props.serviceData._id}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          scheduledDate: selectedDate,
+          scheduledTime: selectedTime,
+          amount: props.serviceData.serviceCost,
+          serviceTitle: props.serviceData.serviceTitle,
+          serviceCost: props.serviceData.serviceCost,
+        }),
+      }
+    );
+    const output = await res.json();
+    console.log(output);
+    if (output.paymentUrl) {
+      window.location.href = output.paymentUrl;
+    } else {
+      alert(output.msg || "Something went wrong");
+    }
+  }
   return (
     <>
       {dataLoaded === true ? (
@@ -121,7 +146,10 @@ function BookService(props) {
               </div>
             </div>
             <div className="m-4 mb-8">
-              <button className="bg-[#D9D9D9] px-5 py-3 rounded-lg cursor-pointer">
+              <button
+                className="bg-[#D9D9D9] px-5 py-3 rounded-lg cursor-pointer"
+                onClick={sendtoBackend}
+              >
                 Proceed to Pay
               </button>
             </div>

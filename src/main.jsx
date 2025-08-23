@@ -9,6 +9,7 @@ import Services from "../screens/services.jsx";
 import Userservices from "../screens/userservices.jsx";
 import ProfileScreen from "../screens/profile.jsx";
 import ErrorPage from "../screens/errorpage.jsx";
+import PaymentStatus from "../screens/paymentStatus.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/services", element: <Services /> },
       { path: "/userservices", element: <Userservices /> },
       { path: "profile", element: <ProfileScreen /> },
+      { path: "/payment-status", element: <PaymentStatus /> },
     ],
   },
   { path: "/login", element: <Login_screen></Login_screen> },
