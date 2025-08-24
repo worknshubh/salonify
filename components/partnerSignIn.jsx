@@ -10,7 +10,7 @@ function PartnersignIn() {
       const userlogin = async () => {
         try {
           const res = await fetch(
-            "https://salonify-backend.onrender.com/auth/saloonowner/signin",
+            "https://salonify-backend.vercel.app/api/auth/saloonowner/signin",
             {
               method: "POST",
               credentials: "include",

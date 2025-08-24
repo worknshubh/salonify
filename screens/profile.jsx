@@ -16,10 +16,13 @@ function ProfileScreen() {
     }
   }
   async function getUserData() {
-    const res = await fetch("https://salonify-backend.onrender.com/auth/info", {
-      method: "GET",
-      credentials: "include",
-    });
+    const res = await fetch(
+      "https://salonify-backend.vercel.app/api/auth/info",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
     const output = await res.json();
     console.log(output);
     setuserInfo(output);
@@ -27,7 +30,7 @@ function ProfileScreen() {
 
   async function checkBookings() {
     const res = await fetch(
-      "https://salonify-backend.onrender.com/user/mybookings",
+      "https://salonify-backend.vercel.app/api/user/mybookings",
       {
         method: "GET",
         credentials: "include",

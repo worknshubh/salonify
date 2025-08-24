@@ -5,10 +5,13 @@ function HeaderComponent() {
   const [userInfo, setuserInfo] = useState(null);
 
   async function getUserData() {
-    const res = await fetch("https://salonify-backend.onrender.com/auth/info", {
-      method: "GET",
-      credentials: "include",
-    });
+    const res = await fetch(
+      "https://salonify-backend.vercel.app/api/auth/info",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
     const output = await res.json();
     console.log(output);
     setuserInfo(output);

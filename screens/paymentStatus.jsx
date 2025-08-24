@@ -10,7 +10,7 @@ function PaymentStatus() {
     async function checkStatus() {
       try {
         const res = await fetch(
-          `https://salonify-backend.onrender.com/payment/status/${txnId}`,
+          `https://salonify-backend.vercel.app/api/payment/status/${txnId}`,
           { method: "GET", credentials: "include" }
         );
         const data = await res.json();

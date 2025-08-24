@@ -40,7 +40,7 @@ function UsersignUp(props) {
     ) {
       const sendtobackend = async () => {
         const res = await fetch(
-          "https://salonify-backend.onrender.com/auth/user/signup",
+          "https://salonify-backend.vercel.app/api/auth/user/signup",
           {
             method: "POST",
             credentials: "include",

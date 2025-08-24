@@ -8,10 +8,13 @@ function Userservices() {
   const [bookindData, setbookingData] = useState(null);
   function browseServices() {
     const browse = async () => {
-      const res = await fetch("https://salonify-backend.onrender.com/browse", {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://salonify-backend.vercel.app/api/browse",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
       const output = await res.json();
       console.log(output);
       setBrowseServices(output);

@@ -11,7 +11,7 @@ function Service_card(props) {
   function verifyRole() {
     const verifyuserrole = async () => {
       const res = await fetch(
-        "https://salonify-backend.onrender.com/auth/verifyrole",
+        "https://salonify-backend.vercel.app/api/auth/verifyrole",
         {
           method: "GET",
           credentials: "include",
@@ -31,7 +31,7 @@ function Service_card(props) {
     if (serviceName != "" && serviceCost != "" && serviceDesc != "") {
       const update_to_backend = async () => {
         const res = await fetch(
-          `https://salonify-backend.onrender.com/services/editservice/${props.serviceData._id}`,
+          `https://salonify-backend.vercel.app/api/api/services/editservice/${props.serviceData._id}`,
           {
             method: "POST",
             credentials: "include",
@@ -58,7 +58,7 @@ function Service_card(props) {
   function deletetheservice() {
     const delete_Service = async () => {
       const res = await fetch(
-        `https://salonify-backend.onrender.com/services/deleteservice/${props.serviceData._id}`,
+        `https://salonify-backend.vercel.app/api/services/deleteservice/${props.serviceData._id}`,
         {
           method: "GET",
           credentials: "include",

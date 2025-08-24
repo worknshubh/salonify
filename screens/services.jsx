@@ -16,15 +16,21 @@ function Services() {
   const [waitforRender, setwaitforRender] = useState(false);
   function checkforsignin() {
     const token = localStorage.getItem("authToken");
+
     if (token) {
     } else {
       navigate("/login");
     }
   }
   function getdata() {
+    if (document.cookie) {
+      console.log("yes user has cookie");
+    } else {
+      console.log("no cookie");
+    }
     const getservices = async () => {
       const res = await fetch(
-        "https://salonify-backend.onrender.com/services/fetchservices",
+        "https://salonify-backend.vercel.app/api/services/fetchservices",
         {
           method: "GET",
           credentials: "include",
@@ -40,7 +46,7 @@ function Services() {
   function checkforrole() {
     const verify = async () => {
       const res = await fetch(
-        "https://salonify-backend.onrender.com/auth/verifyrole",
+        "https://salonify-backend.vercel.app/api/auth/verifyrole",
         {
           method: "GET",
           credentials: "include",
@@ -66,7 +72,7 @@ function Services() {
       const sendtobackend = async () => {
         const serviceImageupload = await uploadimage();
         const res = await fetch(
-          "https://salonify-backend.onrender.com/services/addservice",
+          "https://salonify-backend.vercel.app/api/services/addservice",
           {
             method: "POST",
             headers: {

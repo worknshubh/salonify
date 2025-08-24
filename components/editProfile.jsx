@@ -44,7 +44,7 @@ function EditProfile(props) {
         const userImage = await ImgUpload();
         if (props.data.data.userRole === "Customer") {
           const res = await fetch(
-            "https://salonify-backend.onrender.com/user/updateprofile",
+            "https://salonify-backend.vercel.app/api/user/updateprofile",
             {
               method: "POST",
               credentials: "include",
@@ -61,7 +61,7 @@ function EditProfile(props) {
           const output = await res.json();
         } else {
           const res = await fetch(
-            "https://salonify-backend.onrender.com/salonowner/updateprofile",
+            "https://salonify-backend.vercel.app/api/salonowner/updateprofile",
             {
               method: "POST",
               credentials: "include",
