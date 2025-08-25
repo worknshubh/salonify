@@ -27,7 +27,6 @@ function PartnersignIn() {
           const output = await res.json();
           console.log(output);
           if (output.success && output.token) {
-            localStorage.setItem("authToken", output.token);
             navigate("/services");
           } else {
             alert(output.msg || "Login failed");

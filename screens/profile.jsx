@@ -8,10 +8,16 @@ function ProfileScreen() {
   const [userInfo, setuserInfo] = useState(null);
   const [bookindData, setBookingData] = useState(null);
   const navigate = useNavigate();
-  function checkLogin() {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-    } else {
+  async function checkLogin() {
+    const res = await fetch(
+      "https://salonify-backend.vercel.app/api/auth/verifyrole",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
+    const output = await res.json();
+    if (output.msg === "Unauthorized user") {
       navigate("/login");
     }
   }

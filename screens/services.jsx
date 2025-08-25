@@ -14,11 +14,16 @@ function Services() {
   const [serviceImage, setServiceImage] = useState("");
   const [serviceImagelink, setserviceImagelink] = useState("");
   const [waitforRender, setwaitforRender] = useState(false);
-  function checkforsignin() {
-    const token = localStorage.getItem("authToken");
-
-    if (token) {
-    } else {
+  async function checkforsignin() {
+    const res = await fetch(
+      "https://salonify-backend.vercel.app/api/auth/verifyrole",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
+    const output = await res.json();
+    if (output.msg === "Unauthorized user") {
       navigate("/login");
     }
   }
