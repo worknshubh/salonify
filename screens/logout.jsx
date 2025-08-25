@@ -5,7 +5,7 @@ function Logout() {
   const navigate = useNavigate();
   async function logoutuser() {
     const res = await fetch(
-      "https://salonify-backend.vercel.app/api/auth/verifyrole",
+      "https://salonify-backend.vercel.app/api/auth/logout",
       {
         method: "GET",
         credentials: "include",
