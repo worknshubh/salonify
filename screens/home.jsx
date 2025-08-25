@@ -2,11 +2,16 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-  function verifyandredirect() {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      navigate("/services");
-    } else {
+  async function verifyandredirect() {
+    const res = await fetch(
+      "https://salonify-backend.vercel.app/api/auth/verifyrole",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
+    const output = await res.json();
+    if (output.msg === "Unauthorized user") {
       navigate("/login");
     }
   }
