@@ -10,6 +10,7 @@ import Userservices from "../screens/userservices.jsx";
 import ProfileScreen from "../screens/profile.jsx";
 import ErrorPage from "../screens/errorpage.jsx";
 import PaymentStatus from "../screens/paymentStatus.jsx";
+import Logout from "../screens/logout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
   },
   { path: "/login", element: <Login_screen></Login_screen> },
   { path: "/signup", element: <Signup_screen /> },
+  { path: "/logout", element: <Logout /> },
   { path: "*", element: <ErrorPage /> },
 ]);
 createRoot(document.getElementById("root")).render(
