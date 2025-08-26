@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import { Link, Element } from "react-scroll";
 function HeaderComponent() {
   const [userInfo, setuserInfo] = useState(null);
 
@@ -33,7 +33,11 @@ function HeaderComponent() {
             <li className="mx-10 text-2xl">
               <NavLink to={"/services"}>Services</NavLink>
             </li>
-            <li className="mx-10 text-2xl">About Us</li>
+            <li className="mx-10 text-2xl cursor-pointer">
+              <Link to="about-section" smooth={true} duration={500}>
+                About Us
+              </Link>
+            </li>
             <li className="mx-10 text-2xl">Contact Us</li>
             <NavLink to={"/profile"}>
               {userInfo?.data?.userImage == null ? (

@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import { Outlet } from "react-router-dom";
 // import "./App.css";
 import HeaderComponent from "../components/header";
+import FooterComponent from "../components/footerComponent";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         </div>
         <div>
           <Outlet />
+        </div>
+        <div>
+          <FooterComponent />
         </div>
       </div>
     </>
