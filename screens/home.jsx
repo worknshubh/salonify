@@ -204,7 +204,8 @@ function Home() {
             className="absolute h-30 left-230 top-100"
           ></img>
 
-          <div className=" flex justify-center items-center">
+          <div className=" flex justify-center items-center flex-col">
+            <h2 className="text-5xl m-5">Waiting for what?</h2>
             <button
               className="bg-[#D9D9D9] px-12 py-4 rounded-lg shadow-[0px_10px_15px_-3px_rgba(0,_0,_0,_0.1)] text-lg cursor-pointer mb-30 ml-30 hover:shadow-[0px_23px_15px_-3px_rgba(0,_0,_0,_0.2)] hover:-translate-y-1 active:translate-y-1 active:shadow-[0px_15px_5px_-3px_rgba(0,_0,_0,_0.2)] "
               onClick={verifyandredirect}
