@@ -128,8 +128,8 @@ function Home() {
           </div>
         </Element>
         <div className=" bg-gradient-to-b from-[#eee] to-[#f8f9fa] md:mt-15 md:p-6 md:flex md:justify-center md:flex-col md:items-center">
-          <div className="justify-center items-center flex flex-col md:p-0 p-20 ">
-            <h2 className="text-4xl">What We Offer</h2>
+          <div className="justify-center items-center flex flex-col md:p-0 p-20">
+            <h2 className="md:text-4xl text-3xl">What We Offer</h2>
           </div>
           <div className="flex md:flex-row md:justify-between md:w-[80%] md:my-10 md:inter-normal flex-col w-[100%] items-center">
             <div className="bg-white md:h-60 md:w-[26%] border-2 border-[#ddd] flex flex-col justify-center-safe items-center rounded-lg hover:border-[#efa61f] hover:h-80 w-[70%] md:p-0 p-4 md:m-0 m-6">
