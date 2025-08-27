@@ -11,6 +11,9 @@ function Login_screen() {
   function usercomponent() {
     setactiveComp("user");
   }
+  window.onpopstate = () => {
+    navigate("/");
+  };
   return (
     <>
       <div className="min-h-screen bg-[#FFFFFF] w-full relative">
