@@ -8,6 +8,7 @@ function ProfileScreen() {
   const [userInfo, setuserInfo] = useState(null);
   const [bookindData, setBookingData] = useState(null);
   const navigate = useNavigate();
+
   async function checkLogin() {
     const res = await fetch(
       "https://salonify-backend.vercel.app/api/auth/verifyrole",
@@ -21,6 +22,7 @@ function ProfileScreen() {
       navigate("/login");
     }
   }
+
   async function getUserData() {
     const res = await fetch(
       "https://salonify-backend.vercel.app/api/auth/info",
@@ -57,17 +59,16 @@ function ProfileScreen() {
     setEditProfile(data.visible);
     console.log(data.visible);
   }
+
   return (
     <>
-      {editProfile === true ? (
+      {editProfile ? (
         <div className="w-[50%] m-auto">
-          <div>
-            <EditProfile visibility={getResfromEdit} data={userInfo} />
-          </div>
+          <EditProfile visibility={getResfromEdit} data={userInfo} />
         </div>
       ) : (
         <div className="min-h-max">
-          <div className="flex justify-center items-center flex-col rel">
+          <div className="flex justify-center items-center flex-col">
             {userInfo?.data?.userImage == null ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +78,7 @@ function ProfileScreen() {
               >
                 <path
                   fill="#d9d9d9"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M256 42.667A213.333 213.333 0 0 1 469.334 256c0 117.821-95.513 213.334-213.334 213.334c-117.82 0-213.333-95.513-213.333-213.334C42.667 138.18 138.18 42.667 256 42.667m21.334 234.667h-42.667c-52.815 0-98.158 31.987-117.715 77.648c30.944 43.391 81.692 71.685 139.048 71.685s108.104-28.294 139.049-71.688c-19.557-45.658-64.9-77.645-117.715-77.645M256 106.667c-35.346 0-64 28.654-64 64s28.654 64 64 64s64-28.654 64-64s-28.653-64-64-64"
                 />
               </svg>
@@ -92,7 +93,7 @@ function ProfileScreen() {
                 }}
               />
             )}
-            <div className="flex flex-row relative justify-center items-center">
+            <div className="flex flex-row relative justify-center items-center mt-3">
               <h2 className="text-2xl">{userInfo?.data?.userName}</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,15 +101,13 @@ function ProfileScreen() {
                 height="24"
                 viewBox="0 0 24 24"
                 className="absolute -right-10 cursor-pointer"
-                onClick={() => {
-                  setEditProfile(true);
-                }}
+                onClick={() => setEditProfile(true)}
               >
                 <g
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="1.5"
+                  strokeLinecap="round"
+                  strokeWidth="1.5"
                 >
                   <path
                     d="M16.401 20.5L6 2m16 17a3 3 0 1 1-6 0a3 3 0 0 1 6 0Z"
@@ -119,54 +118,57 @@ function ProfileScreen() {
               </svg>
             </div>
           </div>
+
           {userInfo?.data?.userRole === "Customer" ? (
-            <div className=" flex justify-center items-center mt-8 inter-normal h-130">
+            <div className="flex justify-center items-center mt-8">
               <div className="bg-[#EEEEEE] w-[45%] h-[500px] rounded-2xl flex flex-col">
+                {/* Title */}
                 <div className="flex justify-center items-center m-3 flex-col">
                   <h2 className="text-lg mb-5">My Bookings History</h2>
-                  <div className="w-[100%] flex justify-center items-center flex-col">
-                    <div className="grid grid-cols-5 gap-2 w-[100%] p-2 font-bold">
-                      <h2>Service</h2>
-                      <h2>Date</h2>
-                      <h2>Time</h2>
-                      <h2>Cost</h2>
-                      <h2>Payment Status</h2>
-                    </div>
+                </div>
 
-                    <div className="flex-1 w-full h-[calc(100%-60px)] overflow-y-auto">
-                      {bookindData?.bookedbyUser?.length > 0 ? (
-                        bookindData.bookedbyUser.map((el) =>
-                          el.servicesBooked.map((item) => (
-                            <MyBookings data={item} />
-                          ))
-                        )
-                      ) : (
-                        <div className="flex flex-col items-center justify-center mt-10">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="180px"
-                            height="180px"
-                            viewBox="0 0 2048 2048"
-                          >
-                            <path
-                              fill="#d9d9d9"
-                              d="M896 1536h128v128H896zm64-960q66 0 124 25t101 69t69 102t26 124q0 60-19 104t-47 81t-62 65t-61 59t-48 63t-19 76v64H896v-64q0-60 19-104t47-81t62-65t61-59t48-63t19-76q0-40-15-75t-41-61t-61-41t-75-15t-75 15t-61 41t-41 61t-15 75H640q0-66 25-124t68-101t102-69t125-26"
-                            />
-                          </svg>
-                          <h2 className="text-[#a19d9d]">No Bookings Found</h2>
-                        </div>
-                      )}
+                {/* Header Row */}
+                <div className="grid grid-cols-5 gap-2 w-full p-2 font-bold bg-[#ddd]">
+                  <h2>Service</h2>
+                  <h2>Date</h2>
+                  <h2>Time</h2>
+                  <h2>Cost</h2>
+                  <h2>Payment Status</h2>
+                </div>
+
+                {/* Scrollable List */}
+                <div className="flex-1 w-full overflow-y-auto p-2">
+                  {bookindData?.bookedbyUser?.length > 0 ? (
+                    bookindData.bookedbyUser.map((el, idx) =>
+                      el.servicesBooked.map((item, i) => (
+                        <MyBookings key={`${idx}-${i}`} data={item} />
+                      ))
+                    )
+                  ) : (
+                    <div className="flex flex-col items-center justify-center mt-10">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="180px"
+                        height="180px"
+                        viewBox="0 0 2048 2048"
+                      >
+                        <path
+                          fill="#d9d9d9"
+                          d="M896 1536h128v128H896zm64-960q66 0 124 25t101 69t69 102t26 124q0 60-19 104t-47 81t-62 65t-61 59t-48 63t-19 76v64H896v-64q0-60 19-104t47-81t62-65t61-59t48-63t19-76q0-40-15-75t-41-61t-61-41t-75-15t-75 15t-61 41t-41 61t-15 75H640q0-66 25-124t68-101t102-69t125-26"
+                        />
+                      </svg>
+                      <h2 className="text-[#a19d9d]">No Bookings Found</h2>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
           ) : (
-            <div className=" flex justify-center items-center mt-8 inter-normal h-130">
-              <div className="bg-[#EEEEEE] w-[35%] h-[100%] rounded-2xl">
+            <div className="flex justify-center items-center mt-8">
+              <div className="bg-[#EEEEEE] w-[35%] rounded-2xl">
                 <div className="flex justify-center items-center m-3 flex-col">
                   <h2 className="text-lg mb-5">Scheduled Bookings</h2>
-                  <div className="w-[100%] flex justify-center items-center flex-col">
+                  <div className="w-full flex justify-center items-center flex-col">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="180px"
