@@ -100,6 +100,8 @@ function ProfileScreen() {
                 width="30"
                 height="30"
                 viewBox="0 0 24 24"
+                className="absolute -right-10 cursor-pointer"
+                onClick={() => setEditProfile(true)}
               >
                 <path
                   fill="#aaa"
