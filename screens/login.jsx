@@ -13,8 +13,8 @@ function Login_screen() {
   }
   return (
     <>
-      <div className="min-h-screen bg-[#FFFFFF] w-full">
-        <div className="flex flex-col justify-center items-center border-2 min-h-screen w-[100%]">
+      <div className="min-h-screen bg-[#FFFFFF] w-full relative">
+        <div className="flex flex-col justify-center items-center border-2 min-h-screen w-[100%] z-10 relative">
           <div>
             <h2 className="curl text-6xl ">Welcome Back</h2>
           </div>
@@ -50,7 +50,7 @@ function Login_screen() {
         </div>
         <img
           src="/images/loginpage.png"
-          className="absolute -right-50 bottom-0"
+          className="absolute -right-45 bottom-0 z-0"
         ></img>
       </div>
     </>

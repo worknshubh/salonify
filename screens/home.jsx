@@ -12,7 +12,7 @@ function Home() {
     );
     const output = await res.json();
     if (output.msg === "Unauthorized user") {
-      navigate("/login");
+      navigate("/login", { replace: true });
     } else {
       navigate("/services");
     }

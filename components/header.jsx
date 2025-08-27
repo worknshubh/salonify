@@ -23,7 +23,9 @@ function HeaderComponent() {
     <>
       <div className="flex flex-row p-5 justify-between items-center">
         <div>
-          <h2 className="text-4xl">Salonify</h2>
+          <h2 className="text-4xl">
+            <NavLink to={"/"}>Salonify</NavLink>
+          </h2>
         </div>
         <div>
           <ul className="flex flex-row justify-center items-center">
@@ -38,7 +40,9 @@ function HeaderComponent() {
                 About Us
               </Link>
             </li>
-            <li className="mx-10 text-2xl">Contact Us</li>
+            <li className="mx-10 text-2xl">
+              <NavLink>Contact Us</NavLink>
+            </li>
             <NavLink to={"/profile"}>
               {userInfo?.data?.userImage == null ? (
                 <svg

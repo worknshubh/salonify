@@ -22,8 +22,8 @@ function Signup_screen() {
   }
   return (
     <>
-      <div className="min-h-screen bg-[#FFFFFF] w-full">
-        <div className="flex flex-col justify-center items-center border-2 min-h-screen w-[100%]">
+      <div className="min-h-screen bg-[#FFFFFF] w-full relative">
+        <div className="flex flex-col justify-center items-center border-2 min-h-screen w-[100%] z-10 relative">
           <div>
             <h2 className="curl text-6xl mb-3">Join the Glam</h2>
           </div>
@@ -63,7 +63,7 @@ function Signup_screen() {
         </div>
         <img
           src="/images/signuppage.png"
-          className="absolute -right-70 bottom-0"
+          className="absolute -right-70 bottom-0 z-0"
         ></img>
       </div>
     </>

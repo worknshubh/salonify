@@ -65,7 +65,7 @@ function UsersignIn() {
       </div>
       <div className="flex justify-center items-center my-10 flex-col inter-normal">
         <button
-          className="bg-[#EEEEEE] px-10 py-3 rounded-lg"
+          className="bg-[#EEEEEE] px-10 py-3 rounded-lg hover:bg-[#DDD] cursor-pointer"
           onClick={verifyandsgnin}
         >
           Sign In
