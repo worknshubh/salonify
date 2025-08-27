@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div className="bg-[#FFFFFF] min-h-screen ">
-        <div className="p-4">
+        <div className="">
           <HeaderComponent />
         </div>
         <div>

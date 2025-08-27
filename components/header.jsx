@@ -21,7 +21,7 @@ function HeaderComponent() {
   }, []);
   return (
     <>
-      <div className="flex flex-row p-5 justify-between items-center">
+      <div className="flex flex-row p-5 justify-between items-center sticky w-full z-10 bg-[#fff]">
         <div>
           <h2 className="text-4xl">
             <NavLink to={"/"}>Salonify</NavLink>
@@ -50,7 +50,7 @@ function HeaderComponent() {
                   width="50"
                   height="50"
                   viewBox="0 0 512 512"
-                  className="cursor-pointer"
+                  className="cursor-pointer mr-5"
                 >
                   <path
                     fill="#d9d9d9"
@@ -67,6 +67,7 @@ function HeaderComponent() {
                     borderRadius: "50%",
                     objectFit: "cover",
                   }}
+                  className="mr-5"
                 />
               )}
             </NavLink>

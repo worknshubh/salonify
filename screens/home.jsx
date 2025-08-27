@@ -20,18 +20,20 @@ function Home() {
   }
   return (
     <>
-      <div className="relative">
-        <div className="flex flex-row min-h-100 w-full">
+      <div className="md:relative">
+        <div className="flex md:flex-row md:min-h-100 md:w-full flex-col justify-center items-center">
           <div
-            className="w-[40%] flex flex-col justify-center items-center"
+            className="md:w-[40%] md:flex md:flex-col md:justify-center md:items-center"
             style={{ animation: "leftToright 0.5s ease-out forwards" }}
           >
-            <h2 className="text-6xl my-2">Where Style</h2>
-            <h2 className="text-6xl my-2">Meets</h2>
-            <h2 className="text-6xl text-[#EFA61F] curl my-2">Simplicity</h2>
-            <div className="my-3">
+            <h2 className="md:text-6xl my-2 text-5xl">Where Style</h2>
+            <h2 className="md:text-6xl my-2 text-center text-5xl">Meets</h2>
+            <h2 className="md:text-6xl text-[#EFA61F] curl my-2 text-center text-6xl">
+              Simplicity
+            </h2>
+            <div className="my-3 justify-center flex">
               <button
-                className="bg-[#D9D9D9] px-12 py-4 rounded-lg shadow-[0px_20px_15px_-3px_rgba(0,_0,_0,_0.1)] text-lg cursor-pointer"
+                className="bg-[#D9D9D9] px-12 py-4 md:rounded-lg shadow-[0px_20px_15px_-3px_rgba(0,_0,_0,_0.1)] text-lg cursor-pointer"
                 onClick={verifyandredirect}
               >
                 Book Now
@@ -39,7 +41,7 @@ function Home() {
             </div>
           </div>
           <div
-            className="w-[60%] flex justify-end items-center relative top-15"
+            className="md:w-[60%] md:flex md:justify-end md:items-center relative md:top-15 justify-center items-center hidden"
             style={{ animation: "rightToleft 0.5s ease-out forwards" }}
           >
             <img src="/images/homepagepic.png"></img>
@@ -55,7 +57,7 @@ function Home() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
-          className="absolute top-140"
+          className="md:absolute md:top-140"
           style={{ animation: "bottomTotop 0.5s ease-out forwards" }}
         >
           <path
@@ -67,31 +69,31 @@ function Home() {
 
         <Element name="about-section">
           <div
-            className=" bg-[#eee]  top-15 p-4 relative pb-5"
+            className=" bg-[#eee]  md:top-15 md:p-4 relative md:pb-5"
             style={{ animation: "bottomTotop 0.5s ease-out forwards" }}
           >
-            <div className="justify-center items-center flex flex-col relative">
+            <div className="justify-center md:items-center flex md:flex-col md:relative">
               <img
                 src="/images/scissors.png"
-                className="relative -left-48 top-10"
+                className="relative md:-left-48 md:top-10 md:h-18 h-6 -top-3"
               ></img>
-              <h2 className="text-6xl border-b-2 border-[#ddd] p-1">
+              <h2 className="md:text-6xl md:border-b-2 border-[#ddd] md:p-1 text-4xl">
                 Who are we
               </h2>
               <img
                 src="/images/comb.png"
-                className="relative -right-48 top-0"
+                className="relative md:-right-48 md:top-0 md:h-18 h-6 top-6 "
               ></img>
             </div>
 
-            <div className="flex flex-row justify-between px-20 mt-5 items-center">
-              <div className="w-[20%] h-120 bg-white rounded-2xl shadow-[0px_10px_7px_-3px_rgba(0,_0,_0,_0.1)] group hover:scale-105 hover:shadow-[0px_6px_15px_-3px_rgba(0,_0,_0,_0.1)]">
+            <div className="flex md:flex-row md:justify-between md:px-20 md:mt-5 items-center mt-8 flex-col ">
+              <div className="md:w-[20%] md:h-120 bg-white rounded-2xl shadow-[0px_10px_7px_-3px_rgba(0,_0,_0,_0.1)] group hover:scale-105 hover:shadow-[0px_6px_15px_-3px_rgba(0,_0,_0,_0.1)] w-[70%] p-4">
                 <img
                   src="/images/customer.jpeg"
                   className="group-hover:scale-90 rounded-t-2xl"
                 />
                 <h2 className="text-center text-3xl m-2">Users</h2>
-                <p className="mx-4 my-2 text-justify inter-normal">
+                <p className="md:mx-4 md:my-2 md:text-justify md:inter-normal">
                   Salonify is a platform which connects users who are tired of
                   wasting their precious time standing in long, frustrating
                   lines just to get a haircut, helping them book appointments
@@ -100,16 +102,18 @@ function Home() {
               </div>
               <img
                 src="/images/arrow1.png"
-                className="absolute top-160 left-90"
+                className="md:absolute md:top-137 md:left-90 hidden md:block"
               ></img>
-              <h2 className="text-5xl text-[#EFA61F] ">Salonify</h2>
-              <div className="w-[20%] h-120 bg-white rounded-2xl mt-50 shadow-[0px_10px_7px_-3px_rgba(0,_0,_0,_0.1)] group hover:scale-105 hover:shadow-[0px_6px_15px_-3px_rgba(0,_0,_0,_0.1)]">
+              <h2 className="md:text-5xl text-[#EFA61F] text-5xl md:m-0 m-10">
+                Salonify
+              </h2>
+              <div className="md:w-[20%] md:h-120 bg-white rounded-2xl shadow-[0px_10px_7px_-3px_rgba(0,_0,_0,_0.1)] group hover:scale-105 hover:shadow-[0px_6px_15px_-3px_rgba(0,_0,_0,_0.1)] w-[70%] p-4">
                 <img
                   src="/images/barber.jpg"
                   className="group-hover:scale-90 rounded-t-2xl"
                 />
-                <h2 className="text-center text-3xl m-2">Barbers</h2>
-                <p className="mx-4 my-2 text-justify inter-normal">
+                <h2 className="text-center md:text-3xl md:m-2">Barbers</h2>
+                <p className="md:mx-4 md:my-2 md:text-justify inter-normal">
                   ..to barbers who want to reach more customers, manage
                   appointments efficiently, reduce idle time, and grow their
                   business while providing a smooth, hassle-free experience for
@@ -118,17 +122,17 @@ function Home() {
               </div>
               <img
                 src="/images/arrow2.png"
-                className="absolute top-103 right-113"
+                className="md:absolute md:top-85 md:right-113 hidden md:block"
               ></img>
             </div>
           </div>
         </Element>
-        <div className=" bg-gradient-to-b from-[#eee] to-[#f8f9fa] mt-15 p-6 flex justify-center flex-col items-center">
-          <div className="justify-center items-center flex flex-col ">
+        <div className=" bg-gradient-to-b from-[#eee] to-[#f8f9fa] md:mt-15 md:p-6 md:flex md:justify-center md:flex-col md:items-center">
+          <div className="justify-center items-center flex flex-col md:p-0 p-20 ">
             <h2 className="text-4xl">What We Offer</h2>
           </div>
-          <div className="flex flex-row justify-between w-[80%] my-10 inter-normal">
-            <div className="bg-white h-60 w-[26%] border-2 border-[#ddd] flex flex-col justify-center-safe items-center rounded-lg hover:border-[#efa61f] hover:h-80">
+          <div className="flex md:flex-row md:justify-between md:w-[80%] md:my-10 md:inter-normal flex-col w-[100%] items-center">
+            <div className="bg-white md:h-60 md:w-[26%] border-2 border-[#ddd] flex flex-col justify-center-safe items-center rounded-lg hover:border-[#efa61f] hover:h-80 w-[70%] md:p-0 p-4 md:m-0 m-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
@@ -146,14 +150,14 @@ function Home() {
                   <circle cx="17" cy="17" r="5" />
                 </g>
               </svg>
-              <h2 className="mt-2 text-2xl">Smart Scheduling</h2>
-              <p className="p-4 text-center">
+              <h2 className="md:mt-2 md:text-2xl">Smart Scheduling</h2>
+              <p className="md:p-4 text-center">
                 Salonify lets you book instantly, get timely reminders, and
                 reschedule with ease.
               </p>
             </div>
 
-            <div className="bg-white h-60 w-[26%] border-2 border-[#ddd] flex flex-col justify-center items-center rounded-lg hover:border-[#efa61f] hover:h-80">
+            <div className="bg-white md:h-60 md:w-[26%] border-2 border-[#ddd] flex flex-col justify-center-safe items-center rounded-lg hover:border-[#efa61f] hover:h-80 w-[70%] md:p-0 p-4 md:m-0 m-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
@@ -165,14 +169,14 @@ function Home() {
                   d="M18.25 16.5a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5zM2.004 8.75A3.75 3.75 0 0 1 5.754 5H22.25A3.75 3.75 0 0 1 26 8.75v10.5A3.75 3.75 0 0 1 22.25 23H5.755a3.75 3.75 0 0 1-3.75-3.75zm3.75-2.25a2.25 2.25 0 0 0-2.25 2.25v.75H24.5v-.75a2.25 2.25 0 0 0-2.25-2.25zm-2.25 12.75a2.25 2.25 0 0 0 2.25 2.25H22.25a2.25 2.25 0 0 0 2.25-2.25V11H3.505z"
                 />
               </svg>
-              <h2 className="mt-2 text-2xl">Hassle-Free Payments</h2>
-              <p className="p-4 text-center">
+              <h2 className="md:mt-2 md:text-2xl">Hassle-Free Payments</h2>
+              <p className="md:p-4 text-center">
                 Salonify offers secure checkout, quick transactions, and
                 transparent pricing.
               </p>
             </div>
 
-            <div className="bg-white h-60 w-[26%] border-2 border-[#ddd] flex flex-col justify-center-safe items-center rounded-lg hover:border-[#efa61f] hover:h-80">
+            <div className="bg-white md:h-60 md:w-[26%] border-2 border-[#ddd] flex flex-col justify-center-safe items-center rounded-lg hover:border-[#efa61f] hover:h-80 w-[70%] md:p-0 p-4 md:m-0 m-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
@@ -190,8 +194,8 @@ function Home() {
                   <path d="M12 12a2 2 0 1 0 0-4a2 2 0 0 0 0 4" />
                 </g>
               </svg>
-              <h2 className="mt-2 text-2xl">Nearby Salons</h2>
-              <p className="p-4 text-center">
+              <h2 className="md:mt-2 text-2xl">Nearby Salons</h2>
+              <p className="md:p-4 text-center">
                 Salonify helps you find salons nearby, explore services, and
                 choose the best fit.
               </p>
@@ -199,16 +203,19 @@ function Home() {
           </div>
         </div>
         <div className="bg-[#f8f9fa] flex flex-row relative">
-          <img src="/images/section4.png" className="h-200"></img>
+          <img
+            src="/images/section4.png"
+            className="md:h-200 h-80 md:top-0 md:-left-0 relative -left-30"
+          ></img>
           <img
             src="/images/arrow3.png"
-            className="absolute h-30 left-230 top-100"
+            className="md:absolute md:h-30 md:left-230 md:top-100 md:block hidden"
           ></img>
 
-          <div className=" flex justify-center items-center flex-col">
-            <h2 className="text-5xl m-5">Waiting for what?</h2>
+          <div className=" flex justify-center items-center flex-col md:relative md:left-0 md:top-0 absolute left-40 top-10">
+            <h2 className="md:text-5xl m-5 text-3xl">Waiting for what?</h2>
             <button
-              className="bg-[#D9D9D9] px-12 py-4 rounded-lg shadow-[0px_10px_15px_-3px_rgba(0,_0,_0,_0.1)] text-lg cursor-pointer mb-30 ml-30 hover:shadow-[0px_23px_15px_-3px_rgba(0,_0,_0,_0.2)] hover:-translate-y-1 active:translate-y-1 active:shadow-[0px_15px_5px_-3px_rgba(0,_0,_0,_0.2)] "
+              className="bg-[#D9D9D9] md:px-12 md:py-4 rounded-lg shadow-[0px_10px_15px_-3px_rgba(0,_0,_0,_0.1)] text-lg cursor-pointer mb-30 ml-30 hover:shadow-[0px_23px_15px_-3px_rgba(0,_0,_0,_0.2)] hover:-translate-y-1 active:translate-y-1 active:shadow-[0px_15px_5px_-3px_rgba(0,_0,_0,_0.2)] px-4 py-2"
               onClick={verifyandredirect}
             >
               Schedule Now
