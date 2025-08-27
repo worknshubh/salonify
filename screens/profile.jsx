@@ -121,7 +121,7 @@ function ProfileScreen() {
           </div>
           {userInfo?.data?.userRole === "Customer" ? (
             <div className=" flex justify-center items-center mt-8 inter-normal h-130">
-              <div className="bg-[#EEEEEE] w-[45%] h-[500px] rounded-2xl">
+              <div className="bg-[#EEEEEE] w-[45%] h-[500px] rounded-2xl flex flex-col">
                 <div className="flex justify-center items-center m-3 flex-col">
                   <h2 className="text-lg mb-5">My Bookings History</h2>
                   <div className="w-[100%] flex justify-center items-center flex-col">
@@ -133,7 +133,7 @@ function ProfileScreen() {
                       <h2>Payment Status</h2>
                     </div>
 
-                    <div className="w-[100%] h-[calc(100%-60px)] overflow-y-auto">
+                    <div className="flex-1 w-full h-[calc(100%-60px)] overflow-y-auto">
                       {bookindData?.bookedbyUser?.length > 0 ? (
                         bookindData.bookedbyUser.map((el) =>
                           el.servicesBooked.map((item) => (
