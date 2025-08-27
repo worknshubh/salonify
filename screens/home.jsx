@@ -3,19 +3,20 @@ import { Link, Element } from "react-scroll";
 function Home() {
   const navigate = useNavigate();
   async function verifyandredirect() {
-    const res = await fetch(
-      "https://salonify-backend.vercel.app/api/auth/verifyrole",
-      {
-        method: "GET",
-        credentials: "include",
-      }
-    );
-    const output = await res.json();
-    if (output.msg === "Unauthorized user") {
-      navigate("/login", { replace: true });
-    } else {
-      navigate("/services");
-    }
+    // const res = await fetch(
+    //   "https://salonify-backend.vercel.app/api/auth/verifyrole",
+    //   {
+    //     method: "GET",
+    //     credentials: "include",
+    //   }
+    // );
+    // const output = await res.json();
+    // if (output.msg === "Unauthorized user") {
+    //   navigate("/login", { replace: true });
+    // } else {
+    //   navigate("/services");
+    // }
+    navigate("/services");
   }
   return (
     <>
