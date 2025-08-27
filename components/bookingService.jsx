@@ -10,6 +10,7 @@ function BookService(props) {
   const [userEmail, setUseremail] = useState("");
   const [dataLoaded, setdataLoaded] = useState(false);
   const [userData, setuserData] = useState(null);
+  const [clickOnProceed, setClickonproceed] = useState(false);
   async function getUserData() {
     const res = await fetch(
       "https://salonify-backend.vercel.app/api/auth/info",
@@ -30,6 +31,7 @@ function BookService(props) {
     getUserData();
   }, []);
   async function sendtoBackend() {
+    setClickonproceed(true);
     console.log(props.serviceData._id);
     const res = await fetch(
       `https://salonify-backend.vercel.app/api/user/bookservice/${props.serviceData._id}`,
@@ -150,12 +152,18 @@ function BookService(props) {
               </div>
             </div>
             <div className="m-4 mb-8">
-              <button
-                className="bg-[#D9D9D9] px-5 py-3 rounded-lg cursor-pointer"
-                onClick={sendtoBackend}
-              >
-                Proceed to Pay
-              </button>
+              {clickOnProceed === false ? (
+                <button
+                  className="bg-[#D9D9D9] px-5 py-3 rounded-lg cursor-pointer"
+                  onClick={sendtoBackend}
+                >
+                  Proceed to Pay
+                </button>
+              ) : (
+                <button className="bg-[#D9D9D9] px-5 py-3 rounded-lg cursor-pointer">
+                  Proceeding..
+                </button>
+              )}
             </div>
           </div>
         </div>
