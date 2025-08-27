@@ -97,24 +97,14 @@ function ProfileScreen() {
               <h2 className="text-2xl">{userInfo?.data?.userName}</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="30"
+                height="30"
                 viewBox="0 0 24 24"
-                className="absolute -right-10 cursor-pointer"
-                onClick={() => setEditProfile(true)}
               >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeWidth="1.5"
-                >
-                  <path
-                    d="M16.401 20.5L6 2m16 17a3 3 0 1 1-6 0a3 3 0 0 1 6 0Z"
-                    opacity="0.5"
-                  />
-                  <path d="M7.599 20.5L18 2M2 19a3 3 0 1 0 6 0a3 3 0 0 0-6 0Z" />
-                </g>
+                <path
+                  fill="#aaa"
+                  d="m19.71 8.04l-2.34 2.33l-3.75-3.75l2.34-2.33c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25L13.06 7.18l3.75 3.75L6.75 21H3zM16.62 5.04l-1.54 1.54l2.34 2.34l1.54-1.54zM15.36 11L13 8.64l-9 9.02V20h2.34z"
+                />
               </svg>
             </div>
           </div>
@@ -122,12 +112,10 @@ function ProfileScreen() {
           {userInfo?.data?.userRole === "Customer" ? (
             <div className="flex justify-center items-center mt-8">
               <div className="bg-[#EEEEEE] w-[45%] h-[500px] rounded-2xl flex flex-col">
-                {/* Title */}
                 <div className="flex justify-center items-center m-3 flex-col">
                   <h2 className="text-lg mb-5">My Bookings History</h2>
                 </div>
 
-                {/* Header Row */}
                 <div className="grid grid-cols-5 gap-2 w-full p-2 font-bold bg-[#ddd]">
                   <h2>Service</h2>
                   <h2>Date</h2>
@@ -139,9 +127,9 @@ function ProfileScreen() {
                 {/* Scrollable List */}
                 <div className="flex-1 w-full overflow-y-auto p-2">
                   {bookindData?.bookedbyUser?.length > 0 ? (
-                    bookindData.bookedbyUser.map((el, idx) =>
-                      el.servicesBooked.map((item, i) => (
-                        <MyBookings key={`${idx}-${i}`} data={item} />
+                    bookindData.bookedbyUser.map((el) =>
+                      el.servicesBooked.map((item) => (
+                        <MyBookings data={item} />
                       ))
                     )
                   ) : (
